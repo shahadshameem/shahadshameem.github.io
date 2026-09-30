@@ -98,7 +98,7 @@ section{padding:6rem 5rem;position:relative}
 /* PROJECTS */
 .proj-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.25rem}
 .proj-card{background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:1.75rem;transition:all .25s;position:relative;overflow:hidden;cursor:default}
-.proj-card::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at var(--mx,50%) var(--my,50%),rgba(56,139,253,0.06),transparent 60%);opacity:0;transition:opacity .3s}
+.proj-card::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at var(--mx,50%) var(--my,50%),rgba(56,139,253,0.06),transparent 60%);opacity:0;transition:opacity .3s;pointer-events:none}
 .proj-card:hover{border-color:rgba(56,139,253,0.4);transform:translateY(-3px)}
 .proj-card:hover::before{opacity:1}
 .proj-card.featured{grid-column:1/-1;display:grid;grid-template-columns:1.5fr 1fr;gap:2rem}
@@ -112,6 +112,13 @@ section{padding:6rem 5rem;position:relative}
 .proj-hl::before{content:'▸';color:var(--blue);flex-shrink:0;margin-top:1px}
 .proj-badge{display:inline-block;font-family:var(--mono);font-size:10px;padding:3px 8px;border-radius:4px;margin-bottom:1rem}
 .badge-featured{background:rgba(56,139,253,0.15);border:1px solid rgba(56,139,253,0.4);color:var(--blue)}
+.badge-live{background:rgba(63,185,80,0.15);border:1px solid rgba(63,185,80,0.4);color:var(--green)}
+.proj-links{display:flex;gap:8px;margin-top:1.25rem;flex-wrap:wrap}
+.proj-link-btn{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:11px;padding:6px 12px;border-radius:6px;text-decoration:none;transition:all .2s;position:relative;z-index:2}
+.proj-link-btn.primary{background:rgba(56,139,253,0.15);border:1px solid rgba(56,139,253,0.4);color:var(--blue)}
+.proj-link-btn.primary:hover{background:var(--blue);color:#fff;transform:translateY(-1px)}
+.proj-link-btn.secondary{background:var(--bg3);border:1px solid var(--border);color:var(--text2)}
+.proj-link-btn.secondary:hover{border-color:var(--blue);color:var(--blue);transform:translateY(-1px)}
 
 /* EXPERIENCE */
 .exp-timeline{position:relative;padding-left:2rem}
@@ -209,7 +216,7 @@ footer{padding:2rem 5rem;border-top:1px solid var(--border);display:flex;align-i
       <a href="#contact" class="btn-outline">Get in Touch</a>
     </div>
     <div class="hero-stats">
-      <div class="stat-item"><div class="stat-num">4+</div><div class="stat-label">Projects</div></div>
+      <div class="stat-item"><div class="stat-num">5+</div><div class="stat-label">Projects</div></div>
       <div class="stat-item"><div class="stat-num">7</div><div class="stat-label">Months Exp.</div></div>
       <div class="stat-item"><div class="stat-num">1.2km</div><div class="stat-label">LoRa Range</div></div>
     </div>
@@ -276,8 +283,11 @@ footer{padding:2rem 5rem;border-top:1px solid var(--border);display:flex;align-i
         </div>
       </div>
       <div class="skill-block">
-        <div class="skill-block-title">Software & Tools</div>
+        <div class="skill-block-title">Software & Cloud</div>
         <div class="skill-tags">
+          <span class="skill-tag st-green">React 19 / TypeScript</span>
+          <span class="skill-tag st-green">Tailwind CSS / Vite</span>
+          <span class="skill-tag st-green">Firebase & Firestore</span>
           <span class="skill-tag st-green">Python / Flask</span>
           <span class="skill-tag st-green">Git / GitHub</span>
           <span class="skill-tag st-green">Google Sheets API</span>
@@ -336,7 +346,41 @@ footer{padding:2rem 5rem;border-top:1px solid var(--border);display:flex;align-i
     </div>
 
     <div class="proj-card fade-in">
+      <div class="proj-badge badge-live">● Live Web App</div>
       <div class="proj-number">02</div>
+      <div class="proj-name">WayMate — Campus Ride-Sharing & Cab-Pooling Platform</div>
+      <div class="proj-desc">A mobile-first progressive web app (PWA) built for verified college students at CET to share rides, split cab pools, and coordinate travel safely. Engineered with real-time Firebase services, deterministic route matching, and concurrency-safe seat booking.</div>
+      <div class="proj-tags">
+        <span class="proj-tag">React 19</span>
+        <span class="proj-tag">TypeScript</span>
+        <span class="proj-tag">Vite</span>
+        <span class="proj-tag">Tailwind CSS</span>
+        <span class="proj-tag">Cloud Firestore</span>
+        <span class="proj-tag">Firebase Auth</span>
+        <span class="proj-tag">Cloud Functions</span>
+        <span class="proj-tag">PWA</span>
+      </div>
+      <div class="proj-highlights">
+        <div class="proj-hl">Multi-tier institutional verification safeguarding ride discovery exclusively for students</div>
+        <div class="proj-hl">Deterministic ride-matching engine matching corridor routes, schedules, and gender preferences</div>
+        <div class="proj-hl">Cloud Firestore transactional updates preventing race conditions and seat overbooking</div>
+        <div class="proj-hl">Cab-pool group creation for coordinating and splitting long-distance transit costs</div>
+        <div class="proj-hl">Admin moderation suite for user verifications, route curation, and DPDP-aligned data rights</div>
+      </div>
+      <div class="proj-links">
+        <a href="https://waymate-u.web.app/" target="_blank" rel="noopener noreferrer" class="proj-link-btn primary">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+          Live Demo
+        </a>
+        <a href="https://github.com/shahadshameem/waymate" target="_blank" rel="noopener noreferrer" class="proj-link-btn secondary">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+          GitHub
+        </a>
+      </div>
+    </div>
+
+    <div class="proj-card fade-in">
+      <div class="proj-number">03</div>
       <div class="proj-name">Biometric Attendance System</div>
       <div class="proj-desc">A fingerprint-based attendance system integrated with Google Sheets API for real-time cloud logging and reporting. Eliminated manual record-keeping entirely.</div>
       <div class="proj-tags">
@@ -353,7 +397,7 @@ footer{padding:2rem 5rem;border-top:1px solid var(--border);display:flex;align-i
     </div>
 
     <div class="proj-card fade-in">
-      <div class="proj-number">03</div>
+      <div class="proj-number">04</div>
       <div class="proj-name">IoT-Based Home Automation</div>
       <div class="proj-desc">Smart home automation system using ESP8266 and the Blynk IoT platform, enabling real-time remote control of home appliances via mobile app over Wi-Fi.</div>
       <div class="proj-tags">
@@ -370,7 +414,7 @@ footer{padding:2rem 5rem;border-top:1px solid var(--border);display:flex;align-i
     </div>
 
     <div class="proj-card fade-in">
-      <div class="proj-number">04</div>
+      <div class="proj-number">05</div>
       <div class="proj-name">ICC CET Mess Management Web App</div>
       <div class="proj-desc">A full-featured web platform managing college mess operations for ICC CET — student registration, meal tracking, payment management, and administrative reporting.</div>
       <div class="proj-tags">
