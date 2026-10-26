@@ -6,6 +6,7 @@ const ROLES = [
   'Embedded Systems & Firmware Engineer',
   'LoRa & Wireless Telemetry Architect',
   'ARM Cortex-M Programmer',
+  'Systems & Algorithms Developer (Python & DARP)',
   'Full-Stack Developer (React 19 & Cloud)',
   'B.Tech ECE @ CET Trivandrum',
 ];
@@ -77,8 +78,8 @@ export const Hero: React.FC<{ onOpenTerminal: () => void }> = ({ onOpenTerminal 
 
             {/* Bio prose */}
             <p className="text-base sm:text-lg text-neutral-400 max-w-2xl leading-relaxed mb-8">
-              Architecting resilient hardware telemetry, edge IoT networks, and full-stack cloud web applications. 
-              Creator of the <strong className="text-neutral-200 font-semibold">Survivor Protocol</strong> for LoRa sensor failover and the <strong className="text-neutral-200 font-semibold">WayMate</strong> campus carpooling PWA.
+              Architecting resilient hardware telemetry, edge IoT networks, and high-performance systems. 
+              Creator of the <strong className="text-neutral-200 font-semibold">Survivor Protocol</strong> for LoRa failover, the <strong className="text-neutral-200 font-semibold">WayMate</strong> campus carpooling PWA, and a real-time <strong className="text-neutral-200 font-semibold">DARP Ride-Pooling Engine</strong>.
             </p>
 
             {/* Call to Actions */}

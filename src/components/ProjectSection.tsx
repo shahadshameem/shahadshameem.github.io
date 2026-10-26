@@ -30,7 +30,7 @@ export const ProjectSection: React.FC<{
               Featured Projects
             </h2>
             <p className="text-neutral-400 text-sm mt-2 max-w-xl">
-              From bare-metal ARM microcontrollers and long-range LoRa radios to transactional cloud web architectures.
+              From bare-metal ARM microcontrollers and long-range LoRa radios to high-throughput routing engines and transactional cloud PWAs.
             </p>
           </div>
 
@@ -66,7 +66,7 @@ export const ProjectSection: React.FC<{
               }`}
             >
               <Globe className="w-3.5 h-3.5" />
-              Web & Cloud ({PORTFOLIO_DATA.projects.filter((p) => p.category === 'web').length})
+              Web & Systems ({PORTFOLIO_DATA.projects.filter((p) => p.category === 'web').length})
             </button>
           </div>
         </div>

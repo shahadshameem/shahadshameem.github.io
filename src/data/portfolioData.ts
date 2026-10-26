@@ -67,7 +67,7 @@ export const PORTFOLIO_DATA = {
   },
 
   stats: [
-    { value: "5+", label: "Shipped Projects", sub: "Hardware, IoT & Web" },
+    { value: "6+", label: "Shipped Projects", sub: "Hardware, Systems & Web" },
     { value: "1.2 km+", label: "LoRa LOS Range", sub: "Survivor Protocol tested" },
     { value: "7 Mos", label: "Enterprise Exp", sub: "Cherrylabs, Bangalore" },
     { value: "8.99", label: "Diploma CGPA", sub: "Electronics Engg / 10" },
@@ -156,8 +156,66 @@ export const PORTFOLIO_DATA = {
       },
     },
     {
-      id: "biometric-attendance",
+      id: "pool-engine",
       number: "03",
+      title: "Provider-Independent Ride-Pooling & Dispatch Engine",
+      tagline: "Real-Time Dial-a-Ride Problem (DARP) Solver & Multi-Objective Vehicle Routing Engine",
+      category: "web",
+      categoryLabel: "Distributed Systems & Algorithms",
+      badge: "High-Throughput Core",
+      badgeType: "live",
+      shortDesc: "A high-performance, provider-neutral ride-pooling engine built in Python 3.13 solving real-time Dial-a-Ride Problems (DARP) under strict spatial, temporal, capacity, and quality-of-service constraints.",
+      fullDesc: "Engineered to pair dynamic passenger ride requests into shared multi-stop vehicular journeys with zero provider lock-in. Features a Two-Stage Feasibility Gate enforcing hard physical invariants (precedence, seat capacity across every leg, (1+δ) detour caps, and pickup delay limits) before computing multi-objective utility scores. Solves fleet set packing via a deterministic Regret-K heuristic (k=2) with quantized 4-tier tie-breaking, achieving sub-500ms batch resolution for 1,000 requests and 200 vehicles with pluggable H3 spatial indexing, OSRM road-network routing, and transactional PostgreSQL/PostGIS storage.",
+      role: "Systems Architect & Core Algorithm Developer",
+      period: "2026",
+      tags: ["Python 3.13+", "NumPy 2.0", "H3 Spatial Index", "OSRM Road Router", "PostgreSQL / PostGIS", "Regret-K Heuristics", "Hypothesis PBT", "Strict Mypy"],
+      metrics: [
+        { label: "Batch Latency", value: "<500 ms SLA" },
+        { label: "Fleet Scale", value: "1,000 Req / 200 Veh" },
+        { label: "Determinism", value: "4-Tier Tie-Break" },
+        { label: "Hard Invariants", value: "100% Guaranteed" },
+      ],
+      highlights: [
+        "Two-Stage Feasibility Gate: Hard physical validation of pickup-before-dropoff precedence, seat capacity across all route legs, and (1+δ) relative detour caps prior to utility scoring",
+        "Deterministic Multi-Objective Fleet Optimization: Regret-K heuristic (k=2) balancing VMT reduction (40%), passenger detour (30%), wait times (20%), and idle fleet efficiency",
+        "Deterministic 4-Tier Quantized Tie-Breaking: Strict total-order hierarchy eliminating floating-point discrepancies across distributed compute nodes for bit-for-bit repeatability",
+        "Dual Operating Modes: Exact Mode (exhaustive physical reachability radius search) and Bounded Mode (sub-500ms wall-clock SLA for 1,000 requests / 200 vehicles)",
+        "Pluggable Provider Architecture: Abstract adapters for Uber H3 spatial indexing, OSRM road-network matrix routing, and PostgreSQL/PostGIS transactional storage with OCC",
+        "Rigorous Verification: 100% strict Mypy typing, property-based Hypothesis invariant testing, and comprehensive concurrency race condition test suites",
+      ],
+      architectureDiagram: `[Incoming Ride Requests] ---> [Spatial Index / H3 Radius Gate]
+                                            |
+                                            v
+[Active Vehicle Fleet] -----> [Two-Stage Invariant Feasibility Gate]
+                                  ├─ Precedence: Pickup < Dropoff
+                                  ├─ Capacity: Seat count along all legs
+                                  ├─ Detour Bound: (1 + δ) cap
+                                  └─ Pickup Delay: Max allowable wait
+                                            |
+                                            v
+                              [Multi-Objective Scoring Function]
+                                  ├─ VMT Reduction (40%)
+                                  ├─ Detour Minimization (30%)
+                                  ├─ Wait Time Cap (20%)
+                                  └─ Fleet Utilization (10%)
+                                            |
+                                            v
+                              [Regret-K Fleet Set Packing (k=2)]
+                                            |
+                                            v
+                              [Deterministic 4-Tier Tie-Breaking]
+                                            |
+                                            v
+[PostgreSQL / PostGIS Storage] <--- [Dispatch Orchestrator (OCC Locks)]`,
+      problem: "Solving real-time Dial-a-Ride Problems (DARP) for dynamic ride-pooling requires searching massive combinatorial permutation spaces. Naive matching causes concurrency race conditions, passenger detour violations, capacity overflows, and non-deterministic assignments that fail under high-throughput batch loads.",
+      solution: "Engineered a high-performance, provider-neutral DARP dispatch engine in Python 3.13. Implemented a Two-Stage Feasibility Gate enforcing hard physical invariants, a Regret-K fleet set packing heuristic with quantized 4-tier tie-breaking for bit-for-bit determinism, pluggable H3 spatial indexing, OSRM road-network routing, and PostgreSQL/PostGIS storage with optimistic concurrency control achieving sub-500ms batch resolution.",
+      links: {
+        github: "https://github.com/shahadshameem/pool.engine",
+      },
+    },
+    {
+      id: "biometric-attendance",
+      number: "04",
       title: "Biometric Attendance & Cloud Logging System",
       tagline: "Hardware Fingerprint Scanner with Real-time Google Sheets API Integration",
       category: "embedded",
@@ -188,7 +246,7 @@ export const PORTFOLIO_DATA = {
     },
     {
       id: "home-automation",
-      number: "04",
+      number: "05",
       title: "IoT Smart Home Appliance Controller",
       tagline: "Wi-Fi Connected Microcontroller with Mobile Telemetry & Remote Switching",
       category: "embedded",
@@ -219,7 +277,7 @@ export const PORTFOLIO_DATA = {
     },
     {
       id: "cet-mess-management",
-      number: "05",
+      number: "06",
       title: "ICC CET Mess Management Web Platform",
       tagline: "Student Meal Tracking, Billing, and Administrative Reporting Platform",
       category: "web",
@@ -286,18 +344,20 @@ export const PORTFOLIO_DATA = {
     },
     {
       id: "web-cloud",
-      title: "Web & Cloud Engineering",
-      desc: "Modern reactive frontends, atomic databases & cloud functions",
+      title: "Web & Systems Engineering",
+      desc: "Modern reactive frontends, atomic databases & distributed routing engines",
       iconName: "Layers",
       color: "indigo",
       skills: [
         { name: "React 19 & TypeScript", highlight: true },
+        { name: "Python 3.13+ & NumPy", highlight: true },
         { name: "Vite & Tailwind CSS v4", highlight: true },
         { name: "Cloud Firestore & Transactions", highlight: true },
-        { name: "Firebase Auth & FCM", highlight: true },
-        { name: "Firebase Cloud Functions" },
-        { name: "Python & Flask APIs" },
+        { name: "PostgreSQL & PostGIS", highlight: true },
+        { name: "DARP & Vehicle Routing", highlight: true },
+        { name: "H3 & OSRM Routing Adapters" },
         { name: "PWA (Service Workers & Cache)", highlight: true },
+        { name: "Firebase Auth & Cloud Functions" },
         { name: "Git & GitHub Actions" },
       ],
     },
@@ -377,11 +437,15 @@ export const PORTFOLIO_DATA = {
     },
     {
       cmd: "projects",
-      desc: "List all 5 hardware & software projects with status",
+      desc: "List all 6 hardware, systems & software projects with status",
     },
     {
       cmd: "cat waymate.md",
       desc: "Display technical architecture of the WayMate PWA",
+    },
+    {
+      cmd: "cat pool_engine.py",
+      desc: "Inspect the DARP ride-pooling solver & Two-Stage Feasibility Gate",
     },
     {
       cmd: "cat lora.c",

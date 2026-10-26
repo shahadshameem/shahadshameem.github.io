@@ -142,6 +142,31 @@ export const TerminalWidget: React.FC<{ isOpen: boolean; onClose: () => void }> 
         );
         break;
 
+      case 'cat pool_engine.py':
+      case 'pool-engine':
+      case 'pool_engine':
+      case 'darp':
+        result = (
+          <div className="space-y-2 text-xs border border-indigo-500/30 bg-indigo-950/20 p-3 rounded-lg">
+            <div className="text-indigo-300 font-bold flex items-center justify-between">
+              <span>Provider-Independent Ride-Pooling & Dispatch Engine</span>
+              <span className="text-sky-400 font-mono text-[10px]">● DARP SOLVER CORE</span>
+            </div>
+            <p className="text-neutral-300">
+              Real-time vehicle routing and Dial-a-Ride Problem (DARP) solver built in Python 3.13 with sub-500ms batch SLA.
+            </p>
+            <div className="space-y-1 font-mono text-[11px] text-neutral-400 bg-neutral-950/70 p-2.5 rounded">
+              <div>• Core: Python 3.13+ + NumPy 2.0 + H3 Spatial Indexing + OSRM Routing</div>
+              <div>• Storage & Concurrency: PostgreSQL + PostGIS with row-level locks & OCC</div>
+              <div>• Invariant Gate: Precedence (P &lt; D), Leg Seat Capacity, (1+δ) Detour Cap</div>
+              <div>• Fleet Optimization: Deterministic Regret-K Heuristic (k=2) + 4-Tier Quantized Tie-Break</div>
+              <div>• Benchmark: 1,000 active requests / 200 vehicles resolved in &lt;500 ms SLA</div>
+              <div>• GitHub: <a href="https://github.com/shahadshameem/pool.engine" target="_blank" className="text-sky-400 underline">github.com/shahadshameem/pool.engine</a></div>
+            </div>
+          </div>
+        );
+        break;
+
       case 'cat lora.c':
       case 'lora':
         result = (
@@ -264,7 +289,7 @@ export const TerminalWidget: React.FC<{ isOpen: boolean; onClose: () => void }> 
             <Sparkles className="w-3 h-3 text-sky-400" />
             Quick:
           </span>
-          {['help', 'about', 'projects', 'cat waymate.md', 'cat lora.c', 'ping 1.2km', 'skills', 'contact', 'clear'].map((cmd) => (
+          {['help', 'about', 'projects', 'cat waymate.md', 'cat pool_engine.py', 'cat lora.c', 'ping 1.2km', 'skills', 'contact', 'clear'].map((cmd) => (
             <button
               key={cmd}
               onClick={() => handleCommand(cmd)}
@@ -303,7 +328,7 @@ export const TerminalWidget: React.FC<{ isOpen: boolean; onClose: () => void }> 
             value={inputVal}
             onChange={(e) => setInputVal(e.target.value)}
             onKeyDown={handleKeyDown}
-            placeholder="Type a command (try 'projects' or 'cat waymate.md')..."
+            placeholder="Type a command (try 'projects' or 'cat pool_engine.py')..."
             className="flex-1 bg-transparent text-white font-mono text-xs outline-none placeholder:text-neutral-600"
           />
           <button
